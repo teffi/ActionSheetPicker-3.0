@@ -206,7 +206,7 @@
     // Re-apply viewSize frame. iOS14 somehow overrides the date picker frame set on init
     // See issue: https://github.com/skywinder/ActionSheetPicker-3.0/issues/506
     CGRect pickerFrame = datePicker.frame;
-    pickerFrame.size = datePickerFrame.size.width;
+    pickerFrame.size = datePickerFrame.size;
     datePicker.frame = pickerFrame;
     
     self.pickerView = datePicker;
