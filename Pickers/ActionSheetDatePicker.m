@@ -202,6 +202,13 @@
     [datePicker addTarget:self action:@selector(eventForDatePicker:) forControlEvents:UIControlEventValueChanged];
 
     //need to keep a reference to the picker so we can clear the DataSource / Delegate when dismissing (not used in this picker, but just in case somebody uses this as a template for another picker)
+    
+    // Re-apply viewSize frame. iOS14 somehow overrides the date picker frame set on init
+    // See issue: https://github.com/skywinder/ActionSheetPicker-3.0/issues/506
+    CGRect pickerFrame = datepicker.frame;
+    pickerFrame.size = datePickerFrame.width;
+    datepicker.frame = pickerFrame;
+    
     self.pickerView = datePicker;
 
     return datePicker;
